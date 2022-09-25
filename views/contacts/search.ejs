@@ -1,0 +1,83 @@
+<%- include('../partials/header') -%>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="page-people-directory">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="float-start">
+                                    <h3>Search result</h3>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="list-group mt-3">
+                            <% if(contact) { %>
+                                <% contact.forEach(contact=> { %>
+                                    <div
+                                            class="list-group-item border-0 border-start border-danger border-4 rounded-3 shadow p-md-4 pt-4 pb-4 mb-3">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img class="img-fluid rounded-circle" src="<%= contact.img %>"
+                                                     style="width: 5.5rem; height: 5.5rem;">
+                                            </div>
+                                            <div class="col-md-6 col-5">
+                                                <ul class="list-unstyled pt-2">
+                                                    <li class="fw-bold"><i class="fa fa-user me-sm-1"></i>
+                                                        <%= contact.name + ' ' + contact.lastname %>
+                                                    </li>
+                                                    <li><i class="fas fa-phone-square-alt me-sm-1"></i>
+                                                        <%= contact.phone %>
+                                                    </li>
+                                                    <li><i class="fa fa-envelope me-sm-1"></i>
+                                                        <%= contact.email %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3 col-4">
+                                                <a href="/contacts/edit/<%= contact.id %>">
+                                                    <button href="/profile/settings" type="button"
+                                                            class="btn btn-warning float-end mb-2"
+                                                            style="width: 5.6rem;">
+                                                        <i class="fas fa-edit"></i>
+                                                        <span>Edit</span>
+                                                    </button>
+                                                </a>
+                                                <form style="display: inline;"
+                                                      action="/delete/<%= contact.id %>?_method=DELETE" method="POST">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button style="cursor: pointer;" type="submit"
+                                                            class="btn btn-danger float-end"><i
+                                                                class="fas fa-trash-alt"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <% }) } %>
+                            <% if(contact == '' ) { %>
+                                <div class="alert alert-danger mt-3">Contact does not exist. Please
+                                    enter a
+                                    correct name <a href="/contacts">Click here to search again</a>
+                                </div>
+                            <% } %>
+                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-4">
+                                <a href="/contacts">
+                                    <button type="button" class="btn btn-secondary btn-lg"
+                                            id="btn_new">
+                                        <i class="fas fa-arrow-circle-left"></i>
+                                        &ensp;Back
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/footer') -%>
