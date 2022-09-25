@@ -28,10 +28,15 @@ https://www.mongodb.com/developer/quickstart/cheat-sheet/
 
 Referenzen:
 Node js libraries https://www.npmjs.com/
+
 https://jquery.com/
+
 https://getbootstrap.com/
+
 https://fontawesome.com/
+
 cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.js
+
 cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.css
 
 
